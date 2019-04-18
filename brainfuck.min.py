@@ -1,5 +1,5 @@
-import sys,time
-p,c,l,b=0,0,[0],list(open(str(sys.argv[1]),"r").read())
+import sys
+p,c,l,b,i=0,0,[0],list(open(str(sys.argv[1]),"r").read()),IndexError
 while c<len(b):
     l[p]=(l[p],(l[p]+1,0)[l[p]>=255])[b[c]=='+']
     l[p]=(l[p],(l[p]-1,255)[l[p]<=0])[b[c]=='-']
@@ -20,13 +20,13 @@ while c<len(b):
     elif b[c]=='>':
         try:
             l[p+1]
-        except IndexError:
+        except i:
             l.append(0)
         p=p+1
     elif b[c]=='<':
         try:
             l[p-1]
-        except IndexError:
+        except i:
             p=p+1
         p=p-1
     elif b[c]==',':
