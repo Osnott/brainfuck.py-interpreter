@@ -5,18 +5,18 @@ while c<len(b):
     l[p]=(l[p],(l[p]-1,255)[l[p]<=0])[b[c]=='-']
     if b[c]=="[":
         if l[p]==0:
-            ps,c=1,c+1
-            while ps!=0:
-                ps=(ps,ps+1)[b[c]=='[']
-                ps=(ps,ps-1)[b[c]==']']
-                c=(c,c+1)[ps!=0]
+            s,c=1,c+1
+            while s!=0:
+                s=(s,s+1)[b[c]=='[']
+                s=(s,s-1)[b[c]==']']
+                c=(c,c+1)[s!=0]
     elif b[c]=="]":
         if l[p]!=0:
-            ps,c=1,c-1
-            while ps!=0:
-                ps=(ps,ps+1)[b[c]==']']
-                ps=(ps,ps-1)[b[c]=='[']
-                c=(c,c-1)[ps!=0]
+            s,c=1,c-1
+            while s!=0:
+                s=(s,s+1)[b[c]==']']
+                s=(s,s-1)[b[c]=='[']
+                c=(c,c-1)[s!=0]
     elif b[c]=='>':
         try:
             l[p+1]
